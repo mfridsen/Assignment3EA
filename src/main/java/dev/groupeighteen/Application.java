@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @contact matfir-1@student.ltu.se
  * @date 2024-11-08 14:48:11
  */
-
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
