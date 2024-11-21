@@ -17,6 +17,14 @@ public class TestEntity {
     private Long id;
     private String name;
 
+    @Override
+    public String toString() {
+        return "TestEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;
