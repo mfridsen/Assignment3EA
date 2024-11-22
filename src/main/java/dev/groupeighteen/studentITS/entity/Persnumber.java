@@ -1,4 +1,4 @@
-package dev.groupeighteen.persnumber.entity;
+package dev.groupeighteen.studentITS.entity;
 
 
 import jakarta.persistence.Entity;
@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
  */
 
 /**
- * The Student class represents the database table and is mapped using JPA annotations.
+ * The Persnumber class represents the database table and is mapped using JPA annotations.
  * It acts as the model for the data your application handles.
  */
 

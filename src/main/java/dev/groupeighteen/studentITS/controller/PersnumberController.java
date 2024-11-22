@@ -1,4 +1,4 @@
-package dev.groupeighteen.persnumber.controller;
+package dev.groupeighteen.studentITS.controller;
 
 /**
  * @author Mattias Fridsén
@@ -8,14 +8,14 @@ package dev.groupeighteen.persnumber.controller;
  * @date 2024-11-19 14:30:20
  */
 
-import dev.groupeighteen.persnumber.service.PersnumberService;
+import dev.groupeighteen.studentITS.service.PersnumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * The StudentController handles incoming HTTP requests and maps them to the appropriate service methods.
+ * The PersnumberController handles incoming HTTP requests and maps them to the appropriate service methods.
  * It’s the entry point for the REST API.
  */
 @RestController

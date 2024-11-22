@@ -1,4 +1,4 @@
-package dev.groupeighteen.resultat;
+package dev.groupeighteen.ladok;
 
 /**
  * @author Mattias Fridsén

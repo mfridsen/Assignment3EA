@@ -1,7 +1,7 @@
-package dev.groupeighteen.persnumber.repository;
+package dev.groupeighteen.studentITS.repository;
 
 
-import dev.groupeighteen.persnumber.entity.Persnumber;
+import dev.groupeighteen.studentITS.entity.Persnumber;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
