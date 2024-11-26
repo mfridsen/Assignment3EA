@@ -3,8 +3,10 @@ package dev.groupeighteen.db;
 import dev.groupeighteen.db.entities.Course;
 import dev.groupeighteen.db.entities.Student;
 import dev.groupeighteen.db.entities.Module;
+import dev.groupeighteen.db.entities.Result;
 import dev.groupeighteen.db.repositories.CourseRepository;
 import dev.groupeighteen.db.repositories.ModuleRepository;
+import dev.groupeighteen.db.repositories.ResultRepository;
 import dev.groupeighteen.db.repositories.StudentRepository;
 import jakarta.persistence.Table;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -28,7 +31,8 @@ public class TestDataConfig
     CommandLineRunner commandLineRunner(
             CourseRepository courseRepository,
             StudentRepository studentRepository,
-            ModuleRepository moduleRepository
+            ModuleRepository moduleRepository,
+            ResultRepository resultRepository
     ) {
         return args -> {
             // Students
@@ -70,6 +74,18 @@ public class TestDataConfig
 
             // Print modules to verify
             printTableEntries(Module.class, moduleRepository);
+
+            // Results
+            Result result1 = new Result(LocalDate.now(), "A", "completed", student1, module1);
+            Result result2 = new Result(LocalDate.now().minusDays(10), "B", "completed", student2, module2);
+            Result result3 = new Result(LocalDate.now().minusDays(20), "C", "pending", student3, module3);
+
+            resultRepository.save(result1);
+            resultRepository.save(result2);
+            resultRepository.save(result3);
+
+            // Print results to verify
+            printTableEntries(Result.class, resultRepository);
 
             // Testing non-existent and empty tables
             JpaRepository<?, ?> teacherRepository = null;
