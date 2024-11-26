@@ -4,6 +4,7 @@ import dev.groupeighteen.db.entities.Course;
 import dev.groupeighteen.db.entities.Student;
 import dev.groupeighteen.db.repositories.CourseRepository;
 import dev.groupeighteen.db.repositories.StudentRepository;
+import jakarta.persistence.Table;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,7 +42,7 @@ public class TestDataConfig
             studentRepository.save(student5);
 
             // Print students to verify
-            printTableEntries("students", studentRepository);
+            printTableEntries(studentRepository);
 
             // Courses
             Course course1 = new Course("Enterprise Architecture", "EA101");
@@ -53,21 +54,23 @@ public class TestDataConfig
             courseRepository.save(course3);
 
             // Print courses to verify
-            printTableEntries("courses", courseRepository);
+            printTableEntries(courseRepository);
 
             // Testing non-existent and empty tables
             JpaRepository<?, ?> teacherRepository = null;
-            printTableEntries("teachers", teacherRepository); // non-existent
+            printTableEntries(teacherRepository); // non-existent
         };
     }
 
     // Helper method to print table entries
-    private <T> void printTableEntries(String tableName, JpaRepository<T, ?> repository) {
-        System.out.println("\n\nEntries found in " + tableName + " table:");
+    private <T> void printTableEntries(JpaRepository<T, ?> repository) {
+
         if (repository == null) {
-            System.out.println("Error: Repository for table " + tableName + " is not initialized (null).");
+            System.out.println("\nError: Repository for table is not initialized (null).");
             return;
         }
+        String tableName = getTableName(repository.getDomainClass());
+        System.out.println("\nEntries found in " + tableName + " table:");
         try {
             List<T> entries = repository.findAll();
             if (entries.isEmpty()) {
@@ -77,6 +80,15 @@ public class TestDataConfig
             }
         } catch (Exception e) {
             System.out.println("Error accessing table " + tableName + ": " + e.getMessage());
+        }
+    }
+
+    private String getTableName(Class<?> domainClass) {
+        if (domainClass.isAnnotationPresent(Table.class)) {
+            Table tableAnnotation = domainClass.getAnnotation(Table.class);
+            return tableAnnotation.name();
+        } else {
+            return domainClass.getSimpleName(); // Fall back to class name if @Table is missing
         }
     }
 

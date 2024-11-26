@@ -10,32 +10,41 @@ import jakarta.persistence.*;
  * @date 2024-11-21 18:59:05
  */
 @Entity
-@Table(name = "students", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "personnummer"),
-        @UniqueConstraint(columnNames = "username")
-})
+@Table(
+        name = Student.TABLE_NAME,
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uc_personnummer", columnNames = Student.COLUMN_PERSONNUMMER),
+                @UniqueConstraint(name = "uc_username", columnNames = Student.COLUMN_USERNAME)
+        }
+)
 public class Student {
+
+    // Table and column names
+    public static final String TABLE_NAME = "students";
+    public static final String COLUMN_NAME = "student_name";
+    public static final String COLUMN_PERSONNUMMER = "personnummer";
+    public static final String COLUMN_USERNAME = "username";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int studentId;
 
-    @Column(name = "student_name", nullable = false, length = 100)
+    @Column(name = COLUMN_NAME, nullable = false, length = 100)
     private String studentName;
 
-    @Column(name = "personnummer", nullable = false, unique = true, length = 13)
-    private String personnummer;
+    @Column(name = COLUMN_PERSONNUMMER, nullable = false, unique = true, length = 13)
+    private String personNummer;
 
-    @Column(name = "username", nullable = false, unique = true, length = 8)
+    @Column(name = COLUMN_USERNAME, nullable = false, unique = true, length = 8)
     private String username;
 
     // Constructors
     public Student() {
     }
 
-    public Student(String studentName, String personnummer, String username) {
+    public Student(String studentName, String personNummer, String username) {
         this.studentName = studentName;
-        this.personnummer = personnummer;
+        this.personNummer = personNummer;
         this.username = username;
     }
 
@@ -44,7 +53,7 @@ public class Student {
         return "Student{" +
                 "studentId=" + studentId +
                 ", studentName='" + studentName + '\'' +
-                ", personnummer='" + personnummer + '\'' +
+                ", personnummer='" + personNummer + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }
@@ -66,12 +75,12 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getPersonnummer() {
-        return personnummer;
+    public String getPersonNummer() {
+        return personNummer;
     }
 
-    public void setPersonnummer(String personnummer) {
-        this.personnummer = personnummer;
+    public void setPersonNummer(String personNummer) {
+        this.personNummer = personNummer;
     }
 
     public String getUsername() {

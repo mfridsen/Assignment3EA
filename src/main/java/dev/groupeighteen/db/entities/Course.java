@@ -10,16 +10,29 @@ import jakarta.persistence.*;
  * @date 2024-11-21 19:18:53
  */
 @Entity
+@Table(
+        name = Course.TABLE_NAME,
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uc_course_code", columnNames = Course.COLUMN_CODE)
+        }
+)
 public class Course {
+
+    // Table and column names
+    public static final String TABLE_NAME = "courses";
+    public static final String COLUMN_ID = "course_id";
+    public static final String COLUMN_NAME = "course_name";
+    public static final String COLUMN_CODE = "course_code";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = COLUMN_ID)
     private Long courseId;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = COLUMN_NAME, nullable = false, length = 100)
     private String courseName;
 
-    @Column(nullable = false, length = 10, unique = true)
+    @Column(name = COLUMN_CODE, nullable = false, length = 10, unique = true)
     private String courseCode;
 
     // Default constructor
