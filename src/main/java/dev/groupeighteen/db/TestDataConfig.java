@@ -42,7 +42,7 @@ public class TestDataConfig
             studentRepository.save(student5);
 
             // Print students to verify
-            printTableEntries(studentRepository);
+            printTableEntries(Student.class, studentRepository);
 
             // Courses
             Course course1 = new Course("Enterprise Architecture", "EA101");
@@ -54,22 +54,22 @@ public class TestDataConfig
             courseRepository.save(course3);
 
             // Print courses to verify
-            printTableEntries(courseRepository);
+            printTableEntries(Course.class, courseRepository);
 
             // Testing non-existent and empty tables
             JpaRepository<?, ?> teacherRepository = null;
-            printTableEntries(teacherRepository); // non-existent
+            printTableEntries(null, teacherRepository); // non-existent
         };
     }
 
     // Helper method to print table entries
-    private <T> void printTableEntries(JpaRepository<T, ?> repository) {
+    private <T> void printTableEntries(Class<T> entityClass, JpaRepository<T, ?> repository) {
 
         if (repository == null) {
             System.out.println("\nError: Repository for table is not initialized (null).");
             return;
         }
-        String tableName = getTableName(repository.getDomainClass());
+        String tableName = getTableName(entityClass);
         System.out.println("\nEntries found in " + tableName + " table:");
         try {
             List<T> entries = repository.findAll();
