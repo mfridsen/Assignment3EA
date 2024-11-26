@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(
         name = Student.TABLE_NAME,
-        uniqueConstraints = {
+        uniqueConstraints = { // social ID number and usernames have to be unique
                 @UniqueConstraint(name = "uc_personnummer", columnNames = Student.COLUMN_PERSONNUMMER),
                 @UniqueConstraint(name = "uc_username", columnNames = Student.COLUMN_USERNAME)
         }
@@ -21,12 +21,14 @@ public class Student {
 
     // Table and column names
     public static final String TABLE_NAME = "students";
+    public static final String COLUMN_ID = "student_id";
     public static final String COLUMN_NAME = "student_name";
     public static final String COLUMN_PERSONNUMMER = "personnummer";
     public static final String COLUMN_USERNAME = "username";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = COLUMN_ID)
     private int studentId;
 
     @Column(name = COLUMN_NAME, nullable = false, length = 100)

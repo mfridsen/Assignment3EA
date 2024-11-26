@@ -2,7 +2,9 @@ package dev.groupeighteen.db;
 
 import dev.groupeighteen.db.entities.Course;
 import dev.groupeighteen.db.entities.Student;
+import dev.groupeighteen.db.entities.Module;
 import dev.groupeighteen.db.repositories.CourseRepository;
+import dev.groupeighteen.db.repositories.ModuleRepository;
 import dev.groupeighteen.db.repositories.StudentRepository;
 import jakarta.persistence.Table;
 import org.springframework.boot.CommandLineRunner;
@@ -25,7 +27,8 @@ public class TestDataConfig
     @Bean
     CommandLineRunner commandLineRunner(
             CourseRepository courseRepository,
-            StudentRepository studentRepository
+            StudentRepository studentRepository,
+            ModuleRepository moduleRepository
     ) {
         return args -> {
             // Students
@@ -55,6 +58,18 @@ public class TestDataConfig
 
             // Print courses to verify
             printTableEntries(Course.class, courseRepository);
+
+            // Modules
+            Module module1 = new Module("Introduction to EA", "EA101-01", course1);
+            Module module2 = new Module("Advanced Data Science", "DS102-02", course2);
+            Module module3 = new Module("Machine Learning Basics", "AI103-03", course3);
+
+            moduleRepository.save(module1);
+            moduleRepository.save(module2);
+            moduleRepository.save(module3);
+
+            // Print modules to verify
+            printTableEntries(Module.class, moduleRepository);
 
             // Testing non-existent and empty tables
             JpaRepository<?, ?> teacherRepository = null;
@@ -91,6 +106,4 @@ public class TestDataConfig
             return domainClass.getSimpleName(); // Fall back to class name if @Table is missing
         }
     }
-
-
 }
