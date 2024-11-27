@@ -24,8 +24,8 @@ public class StudentITSController {
     private StudentITSservice service;
 
     @GetMapping("/api/get_Personnnummer")
-    public String getPersonalnumber(@RequestParam String username) {
-        return service.getPersonalnumberByUsername(username);
+    public String getPersonnummer(@RequestParam String username) {
+        return service.getPersonnummerByUsername(username);
     }
 
 }

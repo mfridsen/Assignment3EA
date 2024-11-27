@@ -1,6 +1,6 @@
 package dev.groupeighteen.controllers;
 
-import dev.groupeighteen.controllers.entity.Course;
+import dev.groupeighteen.db.entities.Course;
 import dev.groupeighteen.services.EpokService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
