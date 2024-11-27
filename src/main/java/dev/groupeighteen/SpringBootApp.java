@@ -1,4 +1,6 @@
 package dev.groupeighteen;
+import javafx.application.Application;
+import dev.groupeighteen.gui.GUI;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,9 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2024-11-08 14:48:11
  */
 @SpringBootApplication
-public class Application {
+public class SpringBootApp {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-        //test change
+        Application.launch(GUI.class, args);
+        SpringApplication.run(SpringBootApp.class, args);
     }
 }

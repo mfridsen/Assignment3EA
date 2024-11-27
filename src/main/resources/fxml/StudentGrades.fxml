@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.groupeighteen.gui.StudentGrades">
+   <children>
+      <DatePicker layoutX="413.0" layoutY="424.0" />
+      <MenuButton layoutX="67.0" layoutY="124.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="-">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Text layoutX="67.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kurskod" wrappingWidth="255.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <MenuButton layoutX="376.0" layoutY="124.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="-">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <MenuButton layoutX="679.0" layoutY="124.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="268.0" text="-">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+   </children>
+</AnchorPane>
