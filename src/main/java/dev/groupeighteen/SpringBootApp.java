@@ -1,6 +1,7 @@
 package dev.groupeighteen;
 import javafx.application.Application;
 import dev.groupeighteen.gui.GUI;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -14,6 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringBootApp {
     public static void main(String[] args) {
         Application.launch(GUI.class, args);
-        //SpringApplication.run(Application.class, args);
+        SpringApplication.run(SpringBootApp.class, args);
     }
 }
