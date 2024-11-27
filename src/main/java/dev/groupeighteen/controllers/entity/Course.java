@@ -1,4 +1,4 @@
-package dev.groupeighteen.epok.entity;
+package dev.groupeighteen.controllers.entity;
 
 
 import jakarta.persistence.Entity;

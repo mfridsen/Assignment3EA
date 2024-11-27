@@ -1,4 +1,4 @@
-package dev.groupeighteen.studentITS.service;
+package dev.groupeighteen.services;
 
 
 /**
@@ -9,8 +9,8 @@ package dev.groupeighteen.studentITS.service;
  * @created 2024-11-19
  */
 
-import dev.groupeighteen.studentITS.entity.Persnumber;
-import dev.groupeighteen.studentITS.repository.PersnumberRepository;
+import dev.groupeighteen.services.entity.Persnumber;
+import dev.groupeighteen.services.repository.PersnumberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class PersnumberService {
+public class StudentITSservice {
     @Autowired
     private PersnumberRepository repository;
 

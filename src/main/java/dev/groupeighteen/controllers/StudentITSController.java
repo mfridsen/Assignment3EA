@@ -1,4 +1,4 @@
-package dev.groupeighteen.studentITS.controller;
+package dev.groupeighteen.controllers;
 
 /**
  * @author Mattias Fridsén
@@ -8,7 +8,7 @@ package dev.groupeighteen.studentITS.controller;
  * @date 2024-11-19 14:30:20
  */
 
-import dev.groupeighteen.studentITS.service.PersnumberService;
+import dev.groupeighteen.services.StudentITSservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
  * It’s the entry point for the REST API.
  */
 @RestController
-public class PersnumberController {
+public class StudentITSController {
     @Autowired
-    private PersnumberService service;
+    private StudentITSservice service;
 
     @GetMapping("/api/get_Personnnummer")
     public String getPersonalnumber(@RequestParam String username) {

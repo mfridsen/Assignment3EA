@@ -1,7 +1,7 @@
-package dev.groupeighteen.epok.repository;
+package dev.groupeighteen.controllers.repository;
 
 
-import dev.groupeighteen.epok.entity.Course;
+import dev.groupeighteen.controllers.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package dev.groupeighteen.epok.controller;
+package dev.groupeighteen.controllers;
 
-import dev.groupeighteen.epok.entity.Course;
-import dev.groupeighteen.epok.service.ModulService;
+import dev.groupeighteen.controllers.entity.Course;
+import dev.groupeighteen.services.EpokService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,10 +17,10 @@ import java.util.List;
  * @date 2024-11-19 14:30:27
  */
 @RestController
-public class ModulController {
+public class EpokController {
 
     @Autowired
-    private ModulService service;
+    private EpokService service;
 
     @GetMapping("/api/get_Modul")
     public List <Course> getModules(@RequestParam String courseCode) {

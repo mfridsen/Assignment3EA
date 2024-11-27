@@ -1,4 +1,4 @@
-package dev.groupeighteen.studentITS.entity;
+package dev.groupeighteen.services.entity;
 
 
 import jakarta.persistence.Entity;

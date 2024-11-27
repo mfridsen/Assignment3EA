@@ -1,7 +1,7 @@
-package dev.groupeighteen.epok.service;
+package dev.groupeighteen.services;
 
 
-import dev.groupeighteen.epok.entity.Course;
+import dev.groupeighteen.controllers.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Service
-public class ModulService {
+public class EpokService {
 
     @Autowired
     private courseRepository repository;
