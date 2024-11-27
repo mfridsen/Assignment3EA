@@ -1,5 +1,10 @@
 package dev.groupeighteen.services;
 
+import dev.groupeighteen.db.entities.Student;
+import dev.groupeighteen.db.repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 /**
  * @author Johan Lund
@@ -7,14 +12,7 @@ package dev.groupeighteen.services;
  * @package dev.groupeighteen.persnummer.service
  * @contact ojaulz-2@student.ltu.se
  * @created 2024-11-19
- */
-
-import dev.groupeighteen.services.entity.Persnumber;
-import dev.groupeighteen.services.repository.PersnumberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-/**
+ *
  * The PersnumberService class contains the business logic.
  * It serves as a bridge between the PersnumberRepository (data layer) and the PersnumberController (API layer).
  */
@@ -22,13 +20,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentITSservice {
     @Autowired
-    private PersnumberRepository repository;
+    private StudentRepository repository;
 
-    public String getPersonalnumberByUsername(String username) {
-        Persnumber persnumber = repository.findByUsername(username);
-        if (persnumber == null) {
+    public String getPersonnummerByUsername(String username) {
+        Student student = repository.findByUsername(username);
+        if (student == null) {
             throw new RuntimeException("Student not found");
         }
-        return persnumber.getPersonalnumber();
+        return student.getPersonNummer();
     }
 }

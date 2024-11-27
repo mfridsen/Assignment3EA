@@ -3,6 +3,8 @@ package dev.groupeighteen.db.repositories;
 import dev.groupeighteen.db.entities.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * @author Mattias Fridsén
  * @project Assignment3EA
@@ -12,4 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface CourseRepository extends JpaRepository<Course, Long>
 {
+    List<Course> findByCourseCode(String courseCode);
 }

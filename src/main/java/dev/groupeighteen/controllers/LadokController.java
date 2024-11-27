@@ -11,6 +11,6 @@ public class LadokController {
     @Autowired
     private LadokService service;
 
-    @GetMapping
-    public list<>
+    //@GetMapping
+    //public list<>
 }
