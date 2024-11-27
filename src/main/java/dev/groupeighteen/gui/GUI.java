@@ -18,20 +18,19 @@ public class GUI extends Application {
 
     @Override
     public void init() throws Exception {
-        applicationContext = new SpringApplicationBuilder(SpringBootApplication.class).run();
+        applicationContext = new SpringApplicationBuilder(GUI.class).run();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("StudentGrades.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/fxml/StudentGrades.fxml"));
         Parent root = fxmlloader.load();
 
-
         Scene scene = new Scene(root);
-
-
+        stage.setScene(scene);
+        stage.setTitle("Student Grades Management");
+        stage.show(); // Ensure the stage is shown
         applicationContext.publishEvent(new StageReadyEvent(stage));
-        stage.show();
     }
 
     @Override
