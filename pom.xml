@@ -9,10 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javafx.version>19</javafx.version>
+        <javafx.version>23.0.1</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
 
@@ -42,9 +42,24 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
+            <version>23.0.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>23.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>23.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>23.0.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.mysql</groupId>
@@ -58,6 +73,8 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+
     </dependencies>
 
     <!-- Spring Boot Maven Plugin for running the application -->
@@ -67,7 +84,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>dev.groupeighteen.Application</mainClass>
+                    <mainClass>dev.groupeighteen.SpringBootApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
