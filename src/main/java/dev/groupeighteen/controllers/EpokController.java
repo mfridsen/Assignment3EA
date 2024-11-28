@@ -1,6 +1,5 @@
 package dev.groupeighteen.controllers;
-
-import dev.groupeighteen.db.entities.Course;
+import dev.groupeighteen.db.entities.Module;
 import dev.groupeighteen.services.EpokService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,7 @@ public class EpokController {
     private EpokService service;
 
     @GetMapping("/api/get_Modul")
-    public List <Course> getModules(@RequestParam String courseCode) {
+    public List <Module> getModules(@RequestParam String courseCode) {
         return service.getActiveModulesByCourseCode(courseCode);
     }
 

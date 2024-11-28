@@ -1,5 +1,6 @@
 package dev.groupeighteen.db.repositories;
 
+import dev.groupeighteen.db.entities.Course;
 import dev.groupeighteen.db.entities.Module;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,5 +15,5 @@ import java.util.List;
  */
 public interface ModuleRepository extends JpaRepository<Module, Long>
 {
-    //List<Module> findByCourse(String courseCode);
+    List<Module> findModuleByCourse(Course course);
 }

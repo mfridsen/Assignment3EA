@@ -1,8 +1,8 @@
 package dev.groupeighteen.services;
 
-
-import dev.groupeighteen.db.entities.Course;
+import dev.groupeighteen.db.entities.Module;
 import dev.groupeighteen.db.repositories.CourseRepository;
+import dev.groupeighteen.db.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +20,11 @@ import java.util.List;
 public class EpokService {
 
     @Autowired
-    private CourseRepository repository;
+    private ModuleRepository moduleRepository;
+    private CourseRepository courseRepository;
 
-    public List<Course> getActiveModulesByCourseCode(String courseCode) {
-        return repository.findByCourseCode(courseCode);
+    public List<Module> getActiveModulesByCourseCode(String courseCode) {
+        return moduleRepository.findModuleByCourse(courseRepository.findByCourseCode(courseCode));
     }
 
 }
